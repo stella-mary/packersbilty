@@ -1,0 +1,45 @@
+.NewDesignMain {
+    width: 35%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 35%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    color: white;
+    background-color: #3948ab;
+    align-items: center;
+    border-radius: 10px;
+    
+  }
+  
+  .NewDesignSub {
+    flex: 2;
+    margin-bottom: 10px;
+    
+    
+  }
+
+  .NewDesignSubSub {
+    list-style: none;
+    padding: 1px;
+    
+  }
+
+  .NewDesignTitle {
+    padding-left: 7px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* border-radius: 10px; */
+    margin-top: -20px;
+    margin-bottom: -20px;
+    margin-left: 2px;
+  }
+
+  .NewDesignIcon{
+    margin-right: 20px;
+    font-size: 20px;
+}
