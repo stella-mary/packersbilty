@@ -9,16 +9,24 @@ import PBcard from '../Images/PB-card.jpeg';
 import quot from '../Images/quot.jpeg';
 import survey from '../Images/survey.jpeg';
 import vehicle from '../Images/vehicle.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function MainItems() {
+
+    const navigate = useNavigate()
+
+    function movetoNewQuotation() {
+        navigate("/Quotation")
+    }
+
     return (
         <div className='MainItemsMain'>
             <div className='MainItemsSub'>
                 <div className='MainItemsSubSub'>
                     <p className='image'><img src={quot} alt="" width={50}></img></p>
                     <p className='ListItem'>Quotation</p>
-                    <button className='MainItemsButton'>Add New</button>
+                    <button onClick={movetoNewQuotation} className='MainItemsButton'>Add New</button>
                 </div>
                 <div className='MainItemsSubSub'>
                     <p className='image'><img src={survey} alt="" width={50}></img></p>

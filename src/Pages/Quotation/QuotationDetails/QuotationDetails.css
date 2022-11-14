@@ -1,0 +1,34 @@
+.QuotationDetailsMain{
+    padding: 15px;
+}
+
+.QuotationDetailsHead{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    background-color: #e2ecff;
+}
+
+.QuotationDetailsFormMain{
+    color: #677a91;
+    font-size: 12px;
+}
+
+.QuotationDetailsForm{
+    background: white;
+    margin-top: -10px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.btn{
+    border: none;
+    background-color: #e2ecff;
+    
+}

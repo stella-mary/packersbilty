@@ -19,6 +19,7 @@ import { MdMoney } from 'react-icons/md'
 import { IoBanOutline } from "react-icons/io5";
 
 export default function Sidebar() {
+
     return (
         <div className="sidebar">
             <div className="sidebarWrapper">
@@ -28,12 +29,10 @@ export default function Sidebar() {
                 <div className='sidebarScroll'>
                     <div className="sidebarMenu">
                         <ul className="sidebarList">
-                            {/* <Link to="/" className="link"> */}
                             <li className="sidebarListItemTitle">
                                 <RiMacLine className="sidebarIcon" />
                                 Dashboard
                             </li>
-                            {/* </Link> */}
                         </ul>
                     </div>
 
@@ -129,7 +128,6 @@ export default function Sidebar() {
                 </div>
             </div>
         </div>
-
 
     );
 }
