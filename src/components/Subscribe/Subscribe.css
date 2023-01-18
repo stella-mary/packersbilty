@@ -1,5 +1,5 @@
 .SubscribeMain {
-    width: 50%;
+  width: 40%;
     display: flex;
     justify-content: space-between;
   }
@@ -7,8 +7,8 @@
   .SubscribeSub {
     flex: 1;
     padding: 20px;
-    margin-top: 25px;
-    margin-left: 25px;
+    /* margin-top: 25px;
+    margin-left: 25px; */
     border-radius: 10px;
     cursor: pointer;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
@@ -16,14 +16,15 @@
     background-color: white;
   }
 
-  
+
    .borderbottom{
     border-bottom: solid 1px lightgray;
    }
 
-.title{
+h2.title{
   color: #465e7a;
   margin-top: 0;
+  font-size: 22px;
 }
 
 .title1{

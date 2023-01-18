@@ -4,7 +4,7 @@
 }
 
 .QuotationToHead{
-    font-size: 20px;
+    font-size: 15px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -16,20 +16,36 @@
 
 .QuotationToFormMain{
     color: #677a91;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .QuotationToForm{
     background: white;
     margin-top: -10px;
+    font-weight: bold;
     padding: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 15px;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px; */
 }
 
 .btn{
     border: none;
     background-color: #e2ecff;
     
+}
+
+input{
+    padding: 10px;
+    width: 90%;
+}
+
+select{
+    padding: 10px;
+    width: 100%;
+}
+
+textarea{
+    padding: 10px;
+    width: 95%;
 }

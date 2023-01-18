@@ -1,0 +1,58 @@
+.BillPaymentMain{
+    padding: 15px;
+    width: 50%;
+    
+}
+
+.BillPaymentHead{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    background-color: #e2ecff;
+}
+
+.BillPaymentFormMain{
+    color: #677a91;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.BillPaymentForm{
+    background: white;
+    margin-top: -10px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.btn{
+    border: none;
+    background-color: #e2ecff;    
+}
+
+.BillPaymentFormSub{
+    background-color: #f8d1d1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.BillPaymentFormDiscount{
+    font-size: 10px;
+}
+
+input{
+    border-radius: 5px;
+    border: none;
+    border: solid 1px;
+}
+
+textarea{
+    border-radius: 5px;
+    border: none;
+    border: solid 1px;
+}

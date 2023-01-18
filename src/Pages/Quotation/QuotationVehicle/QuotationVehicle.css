@@ -1,9 +1,10 @@
 .QuotationVehicleMain{
     padding: 15px;
+    /* width: 20%; */
 }
 
 .QuotationVehicleHead{
-    font-size: 20px;
+    font-size: 15px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -15,15 +16,16 @@
 
 .QuotationVehicleFormMain{
     color: #677a91;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .QuotationVehicleForm{
     background: white;
     margin-top: -10px;
     padding: 15px;
+    font-weight: bold;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
 

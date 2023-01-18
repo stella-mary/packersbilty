@@ -12,23 +12,20 @@ import Copyright from './Copyright/Copyright'
 export default function Home() {
     return (
         <div>
-            <div className="container">
-                <div className='containerSub'>
-                    <Subscribe />
-                    <MainItems />
-                </div>
-                <NewDesign />
-                <div className="containerSub">
-                    <DocumentSummary />
-                    <DocumentChat />
-                    <PackDate />
-                </div>
-                <div className="container">
-                    <AnalyticsQuto />
-                </div>
-                <Copyright />
+            <div className='containerMain'>
+                <Subscribe />
+                <MainItems />
             </div>
+            <NewDesign />
+            <div className="containerSub">
+                <DocumentSummary />
+                <DocumentChat />
+                <PackDate />
+            </div>
+            <AnalyticsQuto />
+            <Copyright />
         </div>
+
     )
 }
 

@@ -1,5 +1,6 @@
 .sidebar {
     flex: 1;
+    width: 20%;
     height: calc(100vh - 100px);
     background-color: rgb(251, 251, 255);
     position: sticky;
@@ -96,6 +97,7 @@
   .sidebarIcon{
       margin-right: 15px;
       font-size: 20px !important;
-      
   }
+
+  
   

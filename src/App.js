@@ -1,27 +1,27 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import TopBar from './components/TopBar/TopBar';
+import TopBar from './components/TopBar/TopBar'
 import SideBar from './components/SideBar/SideBar'
-import Subscribe from './components/Subscribe/Subscribe'
-import MainItems from './components/MainItems/MainItems'
-import NewDesign from './components/NewDesign/NewDesign';
-import DocumentSummary from './components/DocumentSummary/DocumentSummary';
-import DocumentChat from './components/DocumentChat/DocumentChat';
-import PackDate from './components/PackDate/PackDate'
-import AnalyticsQuto from './components/AnalyticsQuto/AnalyticsQuto'
-import Copyright from './components/Copyright/Copyright'
-import Pages from './Pages/Pages'
-import Home from './components/Home'
-// import Quotation from './Pages/Quotation/QuotationList/Quotation';
-// import QuotationDetails from './Pages/Quotation/QuotationDetails/QuotationDetails';
-// import QuotationMoveFrom from './Pages/Quotation/QuotationMove/QuotationMoveFrom';
-// import QuotationMoveTo from './Pages/Quotation/QuotationMoveTo/QuotationMoveTo';
-// import QuotationPayment from './Pages/Quotation/QuotationPayment/QuotationPayment';
-// import QuotationInsurance from './Pages/Quotation/QuotationInsurance/QuotationInsurance';
-// import QuotationVehicle from './Pages/Quotation/QuotationVehicle/QuotationVehicle';
-// import QuotationOther from './Pages/Quotation/QuotationOther/QuotationOther';
-// import QuotationItem from './Pages/Quotation/QuotationItem/QuotationItem';
+import QuotationPage from './Pages/QuotationPage'
+import SurveyPage from './Pages/SurveyPage'
+import PackingPage from './Pages/PackingPage'
+import PaymentPage from './Pages/PaymentPage'
+import LorryPage from './Pages/LorryPage'
+import BillPage from './Pages/BillPage'
+import MoneyPage from './Pages/MoneyPage'
+import VehiclePage from './Pages/VehiclePage'
+import BillNewData from './NewData/BillNewData'
+import QuotationNewData from './NewData/QuotationNewData'
+import SurveyNewData from './NewData/SurveyNewData'
+import LorryNewData from './NewData/LorryNewData'
+import PaymentNewData from './NewData/PaymentNewData'
+import PackingNewData from './NewData/PackingNewData'
+import VehicleNewData from './NewData/VehicleNewData'
+import MoneyNewData from './NewData/BillNewData'
+import DownLoad from './Data/Other/DownLoad/DownLoad';
 
+
+import Home from './components/Home'
 
 function App() {
   return (
@@ -30,20 +30,140 @@ function App() {
         <SideBar />
         <div className="container">
           <TopBar />
-          <div className='containerSub'>
-            <Routes>
-              <Route path="/">
-                <Route
-                  index
-                  element={<Home />}
-                />
-                <Route path="Quotation" element={<Pages />} />
-              </Route>
-            </Routes>
-          </div>
+          {/* <div className='containerSub'> */}
+          <Routes>
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="Quotation" element={<QuotationPage />} />
+            </Route>
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="Survey" element={<SurveyPage />} />
+            </Route>
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="Packing" element={<PackingPage />} />
+            </Route>
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="Lorry" element={<LorryPage />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="Vehicle" element={<VehiclePage />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="Bill" element={<BillPage />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="Money" element={<MoneyPage />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="Payment" element={<PaymentPage />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="NewQuotationList" element={<QuotationNewData />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="NewSurveyList" element={<SurveyNewData />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="NewPackingList" element={<PackingNewData />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="NewLorryList" element={<LorryNewData />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="NewVehicleList" element={<VehicleNewData />} />
+              <Route path="NewBillList" element={<BillNewData />} />
+            </Route>
+
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="NewMoneyList" element={<MoneyNewData />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="NewPaymentList" element={<PaymentNewData />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="DownLoad" element={<DownLoad />} />
+            </Route>
+
+          </Routes>
         </div>
+        {/* </div> */}
       </BrowserRouter >
-    </div>
+    </div >
 
   );
 }

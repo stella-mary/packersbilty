@@ -1,10 +1,10 @@
 .QuotationPaymentMain{
     padding: 15px;
-    width: 50%;
+    /* width: 100%; */
 }
 
 .QuotationPaymentHead{
-    font-size: 20px;
+    font-size: 15px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -16,19 +16,62 @@
 
 .QuotationPaymentFormMain{
     color: #677a91;
-    font-size: 12px;
+    font-weight: bold;
+    font-size: 10px;
 }
 
 .QuotationPaymentForm{
     background: white;
     margin-top: -10px;
     padding: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 15px;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px; */
+
 }
 
+.QuotationBox{
+    width: 100%;
+    /* border: 1px solid red; */
+}
 .btn{
     border: none;
     background-color: #e2ecff;    
 }
+
+.QuotationPaymentFormSub{
+    background-color: #f8d1d1;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.QuotationPaymentFormDiscount{
+    font-size: 10px;
+}
+
+input{
+    border-radius: 5px;
+    border: none;
+    border: solid 1px;
+}
+
+/* textarea{
+    border-radius: 5px;
+    border: none;
+    border: solid 1px;
+} */
+
+.QuotationPaymentBox{
+    background-color: green;
+}
+
+.QuotationPaymentPacking{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .QuotationCharge{
+    background-color: green;
+    flex: flex;
+    justify-content: space-between;
+} */

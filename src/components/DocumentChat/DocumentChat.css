@@ -24,7 +24,7 @@
 
 .title{
 color: #465e7a;
-font-size: 15px;
+font-size: 12x;
 margin-top: 0;
 margin-bottom: 0;
 }
@@ -39,3 +39,8 @@ margin-bottom: 0;
   text-align: right;
 }
 
+.DocumentChatChart{
+  height: 90%;
+  /* margin-top: 20%; */
+  /* margin-bottom: -80%; */
+}

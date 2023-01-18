@@ -1,0 +1,49 @@
+.VehicleS{
+    padding: 15px;
+    /* width: 100%; */
+}
+
+.VehicleList{
+    border-bottom: solid  1px #eceff4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    
+}
+.VehicleListMain{
+    list-style: none;
+    background-color: #3545a7;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+
+.VehicleListMain:hover{
+    background-color:   #1b2a8c;
+    cursor: pointer;
+}
+
+
+.VehicleListHead{
+    background-color: white;
+    padding: 10px;
+    border: solid 10px #eceff4;
+    border-radius: 10px;
+}
+
+.VehicleListPara{
+    font-size: 24px;
+    font-weight: bold;
+    color: #3949ab;
+    margin-top: 0;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.VehicleListParaP{
+    font-size: 15px;
+    margin-top: 0;
+    text-align: left;
+}
+

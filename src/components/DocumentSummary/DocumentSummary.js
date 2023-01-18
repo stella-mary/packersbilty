@@ -22,7 +22,7 @@ export default function DocumentSummary() {
                     <div className='DocumentSummaryHeadSub'>
                         <p className='imageD'><img src={quot} alt="" width={35}></img></p>
                         <p className='DocumentSummaryListItem'>Quotation<br /><small>Showing total Quotation</small></p>
-                        <button className='DocumentSummaryButton'>0</button>
+                        <span className='DocumentSummaryButton'>0</span>
                     </div>
                 </div>
                 <div className='DocumentSummaryHead'>

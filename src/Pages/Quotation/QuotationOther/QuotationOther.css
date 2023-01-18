@@ -1,9 +1,10 @@
 .QuotationOtherMain{
     padding: 15px;
+    /* width: 0%; */
 }
 
 .QuotationOtherHead{
-    font-size: 20px;
+    font-size: 15px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -20,14 +21,21 @@
 
 .QuotationOtherForm{
     background: white;
+    font-weight: bold;
     margin-top: -10px;
     padding: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 15px;
+    /* display: grid; 
+    grid-template-columns: 1fr 1fr;
+    gap: 15px; */
 }
 
 .btn{
     border: none;
     background-color: #e2ecff;    
 }
+
+/* textarea{
+    border-radius: 5px;
+    border: none;
+    border: solid 1px;
+} */

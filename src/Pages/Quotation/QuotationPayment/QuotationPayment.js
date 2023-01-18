@@ -2,58 +2,367 @@ import React, { useState, useCallback } from 'react';
 import './QuotationPayment.css'
 import { BiCaretRight } from "react-icons/bi";
 import { BiCaretDown } from "react-icons/bi";
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
-export default function QuotationPayment() {
+const QuotationPayment = ({ userInfo, handleOnChange, }) => {
 
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
+
+    const Item = styled(Paper)(({ theme }) => ({
+        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+        ...theme.typography.body2,
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    }));
 
     return (
         <div className='QuotationPaymentMain'>
             <div className='QuotationPaymentHead'>Payment Details (पेमेंट का विवरण)
                 <button className='btn' onClick={() => setShow((show) => !show)}>{show ? <BiCaretDown /> : <BiCaretRight />}</button></div>
-            {show ? <p>{<div className='QuotationPaymentForm'>
-                <p className='QuotationPaymentFormMain'>FREIGHT CHARGE</p>
-                <input type='text'></input>
-                <p className='QuotationPaymentFormMain'>ADVANCE PAID</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>PACKING CHARGE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>UN PACKING CHARGE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>LOADING CHARGE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>UN LOADING CHARGE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>PACKING MATERIAL CHARGE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>STORAGE CHARGE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>CAR/BIKE TPT</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>MISCELLANEOUS CHARGES</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>OTHER CHARGES</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>S.T. CHARGE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>OCTROI GREEN TAX</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>OCTROI GREEN TAX</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>SURCHARGE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>GST <small>IN QUOTE/BY BILL</small></p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>GST</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>GST TYPE</p>
-                <input></input>
-                <p className='QuotationPaymentFormMain'>REMARK (टिप्पणी)</p>
-                <textarea></textarea>
-                <p className='QuotationPaymentFormMain'>DISCOUNT (डिस्काउंट)</p>
-                <input></input>
-                <p className='QuotationPaymentFormMaim'>Applicable on Sub-Total Amount</p>
-            </div>}</p> : null}
-        </div>
+            {show ? <p>{
+                <form className='QuotationPaymentForm'>
+                    <Box className='QuotationBox'>
+                        <Grid container spacing={2}>
+                            <Grid item xs={4}>
+
+                                <p className='QuotationPaymentFormMain'>FREIGHT CHARGE</p>
+                                <input
+                                    type="text"
+                                    name="quotationfreightCharge"
+                                    id="freightCharge"
+                                    value={userInfo.quotationfreightCharge}
+                                    onChange={handleOnChange}
+                                    placeholder={0}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <p className='QuotationPaymentFormMain'>ADVANCE PAID</p>
+                                <input
+                                    type="text"
+                                    name="quotationAdvancePaid"
+                                    id="AdvancePaid"
+                                    value={userInfo.quotationAdvancePaid}
+                                    onChange={handleOnChange}
+                                    placeholder={0}
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <p></p>
+
+                            </Grid>
+                            <Grid item xs={6}>
+
+                                <p className='QuotationPaymentFormMain'>PACKING CHARGE</p>
+                                <div className='QuotationPaymentPacking'>
+                                    <select
+                                        type="text"
+                                        name="quotationPackingCharge"
+                                        id="fpackingCharge"
+                                        value={userInfo.quotationPackingCharge}
+                                        onChange={handleOnChange}
+                                        placeholder="Included in Freight"
+                                    >
+                                        <option value='1'>Included in Freight</option>
+                                        <option value='2'>Additional from Freight</option>
+                                    </select>
+                                    <input
+                                        type="text"
+                                        name="quotationPackingCharge"
+                                        id="fpackingCharge"
+                                        value={userInfo.quotationPackingCharge}
+                                        onChange={handleOnChange}
+                                        placeholder="0"
+                                    />
+                                </div>
+                            </Grid>
+
+                            <Grid item xs={6}>
+                                <p className='QuotationPaymentFormMain'>UN PACKING CHARGE</p>
+                                <div className='QuotationPaymentPacking'>
+                                    <select
+                                        type="text"
+                                        name="quotationunPackingCharge"
+                                        id="unPackingCharge"
+                                        value={userInfo.quotationunPackingCharge}
+                                        onChange={handleOnChange}
+                                    >
+                                        <option value='3'>Included in Freight</option>
+                                        <option value='4'>Additional from Freight</option>
+                                    </select>
+                                    <input
+                                        type="text"
+                                        name="quotationPackingCharge"
+                                        id="fpackingCharge"
+                                        value={userInfo.quotationPackingCharge}
+                                        onChange={handleOnChange}
+                                        placeholder="0"
+                                    />
+                                </div>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <p className='QuotationPaymentFormMain'>LOADING CHARGE</p>
+                                <div className='QuotationPaymentPacking'>
+                                    <select
+                                        type="text"
+                                        name="quotationLoadingCharge"
+                                        id="loadingCharge"
+                                        value={userInfo.quotationLoadingCharge}
+                                        onChange={handleOnChange}
+                                    >
+                                        <option value='5'>Included in Freight</option>
+                                        <option value='6'>Additional from Freight</option>
+                                    </select>
+                                    <input
+                                        type="text"
+                                        name="quotationPackingCharge"
+                                        id="fpackingCharge"
+                                        value={userInfo.quotationPackingCharge}
+                                        onChange={handleOnChange}
+                                        placeholder="0"
+                                    />
+                                </div>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <p className='QuotationPaymentFormMain'>UN LOADING CHARGE</p>
+                                <div className='QuotationPaymentPacking'>
+                                    <select
+                                        type="text"
+                                        name="quotationunLoadingCharge"
+                                        id="unLoadingCharge"
+                                        value={userInfo.quotationunLoadingCharge}
+                                        onChange={handleOnChange}
+                                    >
+                                        <option value='7'>Included in Freight</option>
+                                        <option value='8'>Additional from Freight</option>
+                                    </select>
+                                    <input
+                                        type="text"
+                                        name="quotationPackingCharge"
+                                        id="fpackingCharge"
+                                        value={userInfo.quotationPackingCharge}
+                                        onChange={handleOnChange}
+                                        placeholder="0"
+                                    />
+                                </div>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <p className='QuotationPaymentFormMain'>PACKING MATERIAL CHARGE</p>
+                                <div className='QuotationPaymentPacking'>
+                                    <select
+                                        type="text"
+                                        name="quotationPackingMaterialCharge"
+                                        id="packingMaterialCharge"
+                                        value={userInfo.quotationPackingMaterialCharge}
+                                        onChange={handleOnChange}
+                                    >
+                                        <option value='9'>Included in Freight</option>
+                                        <option value='10'>Additional from Freight</option>
+                                    </select>
+                                    <input
+                                        type="text"
+                                        name="quotationPackingCharge"
+                                        id="fpackingCharge"
+                                        value={userInfo.quotationPackingCharge}
+                                        onChange={handleOnChange}
+                                        placeholder="0"
+                                    />
+                                </div>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <p></p>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <p className='QuotationPaymentFormMain'>STORAGE CHARGE</p>
+                                <input
+                                    type="text"
+                                    name="quotationStorageCharge"
+                                    id="storageCharge"
+                                    value={userInfo.quotationStorageCharge}
+                                    onChange={handleOnChange}
+                                    placeholder="0"
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <p className='QuotationPaymentFormMain'>CAR/BIKE TPT</p>
+                                <input
+                                    type="text"
+                                    name="quotationcarTPT"
+                                    id="carTPT"
+                                    value={userInfo.quotationcarTPI}
+                                    onChange={handleOnChange}
+                                    placeholder="0"
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <p className='QuotationPaymentFormMain'>MISCELLANEOUS CHARGES</p>
+                                <input
+                                    type="text"
+                                    name="quotationMiscellCharge"
+                                    id="MiscellCharge"
+                                    value={userInfo.quotationMiscellCharge}
+                                    onChange={handleOnChange}
+                                    placeholder="0"
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <p className='QuotationPaymentFormMain'>OTHER CHARGES</p>
+                                <input
+                                    type="text"
+                                    name="quotationOtherCharge"
+                                    id="otherCharge"
+                                    value={userInfo.quotationOtherCharge}
+                                    onChange={handleOnChange}
+                                    placeholder="0"
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <p className='QuotationPaymentFormMain'>S.T. CHARGE</p>
+                                <input
+                                    type="text"
+                                    name="quotationstCharge"
+                                    id="stCharge"
+                                    value={userInfo.quotationstCharge}
+                                    onChange={handleOnChange}
+                                    placeholder="0"
+                                />
+                            </Grid>
+                            <Grid item xs={4}>
+                                <p className='QuotationPaymentFormMain'>OCTROI GREEN TAX</p>
+                                <input
+                                    type="text"
+                                    name="quotationGreenTax"
+                                    id="greenTax"
+                                    value={userInfo.quotationGreenTax}
+                                    onChange={handleOnChange}
+                                    placeholder="0"
+                                />
+                            </Grid>
+                            <Grid item xs={5}>
+                                <p className='QuotationPaymentFormMain'>SURCHARGE</p>
+                                <div className='QuotationPaymentPacking'>
+                                    <select
+                                        type="text"
+                                        name="quotationsurCharge"
+                                        id="surCharge"
+                                        value={userInfo.quotationsurCharge}
+                                        onChange={handleOnChange}
+                                        placeholder="Not Applicable"
+                                    >
+                                        <option value='11'>Not Applicable</option>
+                                        <option value='12'>Applicable</option>
+                                        <option value='13'>Extra</option>
+                                    </select>
+                                    <select
+                                        type="text"
+                                        name="quotationPackingCharge"
+                                        id="fpackingCharge"
+                                        value={userInfo.quotationPackingCharge}
+                                        onChange={handleOnChange}
+                                        placeholder="0"
+                                    >
+                                        <option value='14'>1%</option>
+                                        <option value='15'>2%</option>
+                                        <option value='16'>3%</option>
+                                        <option value='17'>4%</option>
+                                        <option value='18'>5%</option>
+                                        <option value='19'>6%</option>
+                                        <option value='20'>7%</option>
+                                        <option value='21'>8%</option>
+                                        <option value='22'>9%</option>
+                                        <option value='23'>10%</option>
+                                        <option value='24'>11%</option>
+                                        <option value='25'>12%</option>
+                                        <option value='26'>13%</option>
+                                        <option value='27'>14%</option>
+                                        <option value='28'>15%</option>
+                                        <option value='29'>16%</option>
+                                        <option value='30'>17%</option>
+                                        <option value='31'>18%</option>
+                                        <option value='32'>19%</option>
+                                        <option value='33'>20%</option>
+                                    </select>
+                                </div>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <p className='QuotationPaymentFormMain'>GST <small>IN QUOTE/BY BILL</small></p>
+                                <select
+                                    type="text"
+                                    name="quotationGSTQuote"
+                                    id="GSTQuote"
+                                    value={userInfo.quotationGSTQuote}
+                                    onChange={handleOnChange}
+                                    placeholder="Not Applicable"
+                                >
+                                    <option value='34'>In Quotation</option>
+                                    <option value='35'>By Bill</option>
+                                    <option value='36'>Without GST Quotation</option>
+                                    <option value='37'>GST Exempted</option>
+                                </select>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <p className='QuotationPaymentFormMain'>GST</p>
+                                <select
+                                    type="text"
+                                    name="quotationGST"
+                                    id="GST"
+                                    value={userInfo.quotationGST}
+                                    onChange={handleOnChange}
+                                >
+                                    <option value='38'>0</option>
+                                    <option value='39'>5</option>
+                                    <option value='40'>12</option>
+                                    <option value='41'>18</option>
+                                    <option value='41'>28</option>
+                                </select>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <p className='QuotationPaymentFormMain'>GST TYPE</p>
+                                <select
+                                    type="text"
+                                    name="quotationGSTType"
+                                    id="GSTType"
+                                    value={userInfo.quotationGSTType}
+                                    onChange={handleOnChange}
+                                >
+                                    <option value='42'>CGST/SGST</option>
+                                    <option value='43'>IGST</option>
+
+                                </select>
+                            </Grid>
+                            <Grid item xs={8}>
+                                <p className='QuotationPaymentFormMain'>REMARK (टिप्पणी)</p>
+                                <textarea
+                                    name="quotationRemark" required
+                                    id="fRemark"
+                                    value={userInfo.quotationfRemark}
+                                    onChange={handleOnChange}
+                                >
+                                </textarea>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <div className='QuotationPaymentFormSub'>
+                                    <p className='QuotationPaymentFormDiscount'>DISCOUNT (डिस्काउंट)</p>
+                                    <input
+                                        type="text"
+                                        name="quotationDiscount" required
+                                        id="discount"
+                                        value={userInfo.quotationDiscount}
+                                        onChange={handleOnChange}
+                                    />
+                                    <p className='QuotationPaymentFormDiscount'>Applicable on Sub-Total Amount</p>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </Box></form>}</p> : null
+            }
+
+        </div >
+
     )
 }
+
+export default QuotationPayment

@@ -1,5 +1,6 @@
 .QuotationS{
     padding: 15px;
+
     /* width: 100%; */
 }
 
@@ -21,6 +22,7 @@
 
 .QuotationListMain:hover{
     background-color:   #1b2a8c;
+    cursor: pointer;
 }
 
 
