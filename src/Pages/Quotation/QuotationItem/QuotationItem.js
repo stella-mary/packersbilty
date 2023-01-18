@@ -8,6 +8,30 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+// import delete from 'delete.png';
+import remove from '../Img/remove.png';
+import exclamationmark from '../Img/exclamationmark.png'
+import { Identity } from '@mui/base';
+
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+// import Paper from '@mui/material/Paper';
+import Draggable from 'react-draggable';
+
+function PaperComponent(props) {
+    return (
+        <Draggable
+            handle="#draggable-dialog-title"
+            cancel={'[class*="MuiDialogContent-root"]'}
+        >
+            <Paper {...props} />
+        </Draggable>
+    );
+}
 
 
 const QuotationItem = ({ userInfo, handleOnChange }) => {
@@ -15,6 +39,16 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
     const navigate = useNavigate();
     const [show, setShow] = useState(true);
     const [data, setData] = useState([]);
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
 
     const [details, setDetails] = useState({
         name: userInfo.quotationPartName,
@@ -23,6 +57,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
         remark: userInfo.quotationfRemark,
         itemId: userInfo.itemId
     });
+
 
 
 
@@ -67,15 +102,30 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
         });
     };
 
-    const deleteItems = (id) => {
-        // stopPropagation();
+    // const deleteItems = (id) => {
+    //     // stopPropagation();
 
-        console.log(id);
-        axios.delete(`http://localhost:7005/items/${id}`).then((response) => {
-            console.log(response);
-            //   fetchAllEvents();
-            navigate("/QuotationItem");
-        });
+    //     // console.log(id);
+    //     axios.delete(`http://localhost:7005/items/${id}`).then((response) => {
+    //         console.log(response);
+    //         //   fetchAllEvents();
+    //         navigate("/QuotationItem");
+    //     });
+    // };
+
+    const deleteItems = (idToDelete) => {
+        console.log(parseInt(idToDelete));
+
+        axios
+            .delete("http://localhost:7005/items/${id}", {
+                data: {
+                    id: parseInt(idToDelete),
+                },
+            })
+            .then((response) => {
+                console.log(response);
+                getAllQuotation();
+            });
     };
 
     useEffect(() => {
@@ -168,8 +218,39 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                     <p className="addItemsPara">{row.id}.) Item / Particulars : {row.quotationPartName}</p>
                                     <p className='addItemsPara'> Qty.: {row.quotationQuantity} | Value(Rupees): {row.quotationfValue}</p>
                                     <p className='addItemsPara'>Remark: {row.quotationfRemark}</p>
-                                    <button onclick={() => deleteItems(row.id)}>Delete</button>
-
+                                    {/* <button onclick={() => deleteItems(row.id)}> */}
+                                    {/* <button onClick={(e) => deleteItems(row.id)}>
+                                        {/* <img src="\src\Pages\Quotation\QuotationItem\delete.png" alt="this is car image" /></button> */}
+                                    {/* <img src={remove} alt="" width={20}></img> */}
+                                    {/* </button> * /} */}
+                                    < div>
+                                        <Button variant="outlined" onClick={handleClickOpen}>
+                                            <img src={remove} alt="" width={20}></img>
+                                        </Button>
+                                        <Dialog
+                                            className='Popup'
+                                            open={open}
+                                            onClose={handleClose}
+                                            PaperComponent={PaperComponent}
+                                            aria-labelledby="draggable-dialog-title"
+                                        >
+                                            <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+                                                <img src={exclamationmark} alt="" width={50}></img>
+                                            </DialogTitle>
+                                            <DialogContent>
+                                                <DialogContentText>
+                                                    <span className="big"></span>Are you sure?<br /><br />
+                                                    You want to remove
+                                                </DialogContentText>
+                                            </DialogContent>
+                                            <DialogActions>
+                                                <Button autoFocus onClick={handleClose}>
+                                                    Delete
+                                                </Button>
+                                                <Button onClick={handleClose}>Cancel</Button>
+                                            </DialogActions>
+                                        </Dialog>
+                                    </div>
                                 </div>
                             ))}
                         </div>

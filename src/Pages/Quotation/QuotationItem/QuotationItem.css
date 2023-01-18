@@ -52,3 +52,12 @@
     text-align: right;
     margin-left: 90px;
 }
+
+.Popup{
+    text-align: center;
+}
+
+.big{
+    font-size: 20px;
+    color:  grey;
+}
