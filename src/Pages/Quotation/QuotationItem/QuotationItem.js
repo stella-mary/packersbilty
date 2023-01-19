@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 // import delete from 'delete.png';
 import remove from '../Img/remove.png';
 import exclamationmark from '../Img/exclamationmark.png'
@@ -21,6 +21,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 // import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
+
 
 function PaperComponent(props) {
     return (
@@ -40,25 +41,33 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
     const [show, setShow] = useState(true);
     const [data, setData] = useState([]);
     const [open, setOpen] = React.useState(false);
+    const [display, setDisplay] = useState(false)
+
+    const [searchParam] = useSearchParams();
+    const itemId = searchParam.get("items");
+    const [selectedEntry, setSelectedEntry] = useState("");
+    // const [show, setShow] = useState(false);
+
 
     const handleClickOpen = (id) => {
         setOpen(true);
         console.log(id)
 
-
     };
 
-    const handleRemove = (id) => {
 
+    const handleRemove = (itemId) => {
 
-        console.log(id);
-        axios.delete(`http://localhost:7005/items/${id}`).then((response) => {
+        console.log(itemId);
+        axios.delete(`http://localhost:7005/items/${itemId}`).then((response) => {
             console.log(response);
             getAllQuotation()
             //   fetchAllEvents();
             // navigate("/QuotationItem");
         });
         setOpen(false);
+        setDisplay(true);
+        // document.write("Removed This Item / Particular");
 
     };
 
@@ -118,7 +127,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
         <div className='QuotationItemMain'>
             <div className='QuotationItemHead'>Item / Particulars Details (सामान का विवरण)
                 <button className='btn' onClick={() => setShow((show) => !show)}>{show ? <BiCaretDown /> : <BiCaretRight />}</button></div>
-            {show ? <p>{
+            {show ? (
                 <form>
                     {/* <div className='QuotationItemForm'> */}
                     <Box sx={{ flexGrow: 1 }}>
@@ -162,8 +171,8 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
 
                                 <input
                                     type="text"
-                                    name="quotationRemark"
-                                    id="remark"
+                                    name="quotationfRemark"
+                                    id="fRemark"
                                     value={userInfo.quotationfRemark}
                                     onChange={handleOnChange}
                                 />
@@ -185,50 +194,67 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                 <button onClick={() => handleSubmit()} className="QuotationItems">ADD ITEM/PARTICULARS</button>
                             </Grid>
                         </Grid>
+
+                        {/* {display ? <div>Removed This Item / Particular</div> : */}
                         <div>
                             {data.map((row) => (
                                 <div className="addItems" key={row.id}>
+
                                     <div className='addItemsTable'>
                                         <p className="addItemsParaTable">.) Item / Particulars : {row.quotationPartName}</p>
                                     </div>
                                     <p className='addItemsPara'>Qty.: {row.quotationQuantity} | Value(Rupees): {row.quotationfValue}</p>
                                     <p className='addItemsPara'>Remark: {row.quotationfRemark}</p>
                                     < div>
-                                        <Button variant="outlined" onClick={() => handleClickOpen(row.id)}>
+                                        <Button variant="outlined" onClick={(e) => {
+                                            e.stopPropagation();
+                                            console.log("set show clicked..");
+                                            setSelectedEntry(row.id);
+                                            setOpen((open) => !open);
+                                        }}
+                                        >
+
                                             <img src={remove} alt="" width={20}></img>
                                         </Button>
+
                                     </div>
-                                    <div>
-                                        <Dialog
-                                            className='Popup'
-                                            open={open}
-                                            onClose={handleClose}
-                                            PaperComponent={PaperComponent}
-                                            aria-labelledby="draggable-dialog-title"
-                                        >
-                                            <DialogTitle style={{ cursor: 'move' }} className="draggable-dialog-title">
-                                                <img src={exclamationmark} alt="" width={50}></img>
-                                            </DialogTitle>
-                                            <DialogContent>
-                                                <DialogContentText>
-                                                    <span className="big"></span>Are you sure?<br /><br />
-                                                    You want to remove {row.quotationPartName}
-                                                </DialogContentText>
-                                            </DialogContent>
-                                            <DialogActions>
-                                                <Button onClick={() => handleRemove(row.id)}>
-                                                    Delete
-                                                </Button>
-                                                <Button onClick={handleClose}>Cancel</Button>
-                                            </DialogActions>
-                                        </Dialog>
-                                    </div>
-                                    Removed This Item / Particular
+                                    {row.id === selectedEntry && open ? (
+                                        <div>
+                                            <Dialog
+                                                className='Popup'
+                                                open={open}
+                                                onClose={handleClose}
+                                                PaperComponent={PaperComponent}
+                                                aria-labelledby="draggable-dialog-title"
+                                            >
+                                                <DialogTitle style={{ cursor: 'move' }} className="draggable-dialog-title">
+                                                    <img src={exclamationmark} alt="" width={50}></img>
+                                                </DialogTitle>
+                                                <DialogContent>
+                                                    <DialogContentText>
+                                                        <span className="big"></span>Are you sure?<br /><br />
+                                                        You want to remove {row.quotationPartName}
+                                                    </DialogContentText>
+                                                </DialogContent>
+                                                <DialogActions>
+                                                    <Button onClick={() => handleRemove(row.id)}>
+                                                        Delete
+                                                    </Button>
+                                                    <Button onClick={handleClose}>Cancel</Button>
+                                                </DialogActions>
+                                            </Dialog>
+                                        </div>
+                                    ) : display ? <div>Removed This Item / Particular</div> : null}
+                                    {/* {display ? <div>Removed This Item / Particular</div> : null} */}
                                 </div>
+
                             ))}
+
                         </div>
-                    </Box></form >}</p> : null
+
+                    </Box></form >) : null
             }
+
 
         </div >
 
