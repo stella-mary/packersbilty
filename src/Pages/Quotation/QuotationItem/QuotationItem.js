@@ -41,14 +41,30 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
     const [data, setData] = useState([]);
     const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen = () => {
+    const handleClickOpen = (id) => {
         setOpen(true);
+        console.log(id)
+
+
+    };
+
+    const handleRemove = (id) => {
+
+
+        console.log(id);
+        axios.delete(`http://localhost:7005/items/${id}`).then((response) => {
+            console.log(response);
+            getAllQuotation()
+            //   fetchAllEvents();
+            // navigate("/QuotationItem");
+        });
+        setOpen(false);
+
     };
 
     const handleClose = () => {
-        setOpen(false);
-    };
-
+        setOpen(false)
+    }
 
     const [details, setDetails] = useState({
         name: userInfo.quotationPartName,
@@ -58,22 +74,6 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
         itemId: userInfo.itemId
     });
 
-
-
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     setDetails(details)
-    //     console.log(details)
-    // }
-
-    // const handleOnChange = (e) => {
-    //     // const { name, value } = e.target
-    //     // setDetails({ ...details, [name]: value })
-    //     // // setUserInfo({ value: e.target.value });
-    //     setDetails({ value: e.target.value });
-
-    // }
 
     const handleSubmit = (e) => {
         // e.preventDefault()
@@ -87,9 +87,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
 
         }).then((response) => {
             console.log(response)
-            // navigate("/QuotationItem")
-            // console.log(response.data)
-            // console.log(response.data.quotationNumber)
+
         })
 
         setDetails("")
@@ -102,31 +100,6 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
         });
     };
 
-    // const deleteItems = (id) => {
-    //     // stopPropagation();
-
-    //     // console.log(id);
-    //     axios.delete(`http://localhost:7005/items/${id}`).then((response) => {
-    //         console.log(response);
-    //         //   fetchAllEvents();
-    //         navigate("/QuotationItem");
-    //     });
-    // };
-
-    const deleteItems = (idToDelete) => {
-        console.log(parseInt(idToDelete));
-
-        axios
-            .delete("http://localhost:7005/items/${id}", {
-                data: {
-                    id: parseInt(idToDelete),
-                },
-            })
-            .then((response) => {
-                console.log(response);
-                getAllQuotation();
-            });
-    };
 
     useEffect(() => {
         getAllQuotation();
@@ -191,7 +164,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                     type="text"
                                     name="quotationRemark"
                                     id="remark"
-                                    value={userInfo.quotationRemark}
+                                    value={userInfo.quotationfRemark}
                                     onChange={handleOnChange}
                                 />
 
@@ -215,18 +188,17 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                         <div>
                             {data.map((row) => (
                                 <div className="addItems" key={row.id}>
-                                    <p className="addItemsPara">{row.id}.) Item / Particulars : {row.quotationPartName}</p>
-                                    <p className='addItemsPara'> Qty.: {row.quotationQuantity} | Value(Rupees): {row.quotationfValue}</p>
+                                    <div className='addItemsTable'>
+                                        <p className="addItemsParaTable">.) Item / Particulars : {row.quotationPartName}</p>
+                                    </div>
+                                    <p className='addItemsPara'>Qty.: {row.quotationQuantity} | Value(Rupees): {row.quotationfValue}</p>
                                     <p className='addItemsPara'>Remark: {row.quotationfRemark}</p>
-                                    {/* <button onclick={() => deleteItems(row.id)}> */}
-                                    {/* <button onClick={(e) => deleteItems(row.id)}>
-                                        {/* <img src="\src\Pages\Quotation\QuotationItem\delete.png" alt="this is car image" /></button> */}
-                                    {/* <img src={remove} alt="" width={20}></img> */}
-                                    {/* </button> * /} */}
                                     < div>
-                                        <Button variant="outlined" onClick={handleClickOpen}>
+                                        <Button variant="outlined" onClick={() => handleClickOpen(row.id)}>
                                             <img src={remove} alt="" width={20}></img>
                                         </Button>
+                                    </div>
+                                    <div>
                                         <Dialog
                                             className='Popup'
                                             open={open}
@@ -234,23 +206,24 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                             PaperComponent={PaperComponent}
                                             aria-labelledby="draggable-dialog-title"
                                         >
-                                            <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+                                            <DialogTitle style={{ cursor: 'move' }} className="draggable-dialog-title">
                                                 <img src={exclamationmark} alt="" width={50}></img>
                                             </DialogTitle>
                                             <DialogContent>
                                                 <DialogContentText>
                                                     <span className="big"></span>Are you sure?<br /><br />
-                                                    You want to remove
+                                                    You want to remove {row.quotationPartName}
                                                 </DialogContentText>
                                             </DialogContent>
                                             <DialogActions>
-                                                <Button autoFocus onClick={handleClose}>
+                                                <Button onClick={() => handleRemove(row.id)}>
                                                     Delete
                                                 </Button>
                                                 <Button onClick={handleClose}>Cancel</Button>
                                             </DialogActions>
                                         </Dialog>
                                     </div>
+                                    Removed This Item / Particular
                                 </div>
                             ))}
                         </div>
