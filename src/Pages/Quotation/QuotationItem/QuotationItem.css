@@ -73,3 +73,7 @@ body
     content: counter(Serial); /* Display the counter */
 
 }
+
+.FinalMessage{
+    display: none;
+}

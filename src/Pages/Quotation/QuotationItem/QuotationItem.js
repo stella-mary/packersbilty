@@ -41,7 +41,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
     const [show, setShow] = useState(true);
     const [data, setData] = useState([]);
     const [open, setOpen] = React.useState(false);
-    const [display, setDisplay] = useState(false)
+    const [display, setDisplay] = useState("")
 
     const [searchParam] = useSearchParams();
     const itemId = searchParam.get("items");
@@ -66,7 +66,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
             // navigate("/QuotationItem");
         });
         setOpen(false);
-        setDisplay(true);
+        setDisplay("Removed This Item / Particular");
         // document.write("Removed This Item / Particular");
 
     };
@@ -243,15 +243,17 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                                     <Button onClick={handleClose}>Cancel</Button>
                                                 </DialogActions>
                                             </Dialog>
+
                                         </div>
-                                    ) : display ? <div>Removed This Item / Particular</div> : null}
-                                    {/* {display ? <div>Removed This Item / Particular</div> : null} */}
+
+                                    ) : null
+                                    }
                                 </div>
 
                             ))}
 
                         </div>
-
+                        {display && <p>{display}</p>}
                     </Box></form >) : null
             }
 
