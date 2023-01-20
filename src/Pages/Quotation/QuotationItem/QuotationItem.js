@@ -66,7 +66,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
             // navigate("/QuotationItem");
         });
         setOpen(false);
-        setDisplay("Removed This Item / Particular");
+        setDisplay(<div className='removeItems'>"Removed This Item / Particular"</div>);
         // document.write("Removed This Item / Particular");
 
     };
@@ -201,22 +201,19 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                 <div className="addItems" key={row.id}>
 
                                     <div className='addItemsTable'>
-                                        <p className="addItemsParaTable">.) Item / Particulars : {row.quotationPartName}</p>
-                                    </div>
-                                    <p className='addItemsPara'>Qty.: {row.quotationQuantity} | Value(Rupees): {row.quotationfValue}</p>
-                                    <p className='addItemsPara'>Remark: {row.quotationfRemark}</p>
-                                    < div>
-                                        <Button variant="outlined" onClick={(e) => {
-                                            e.stopPropagation();
-                                            console.log("set show clicked..");
-                                            setSelectedEntry(row.id);
-                                            setOpen((open) => !open);
-                                        }}
-                                        >
+                                        <p className="addItemsParaTable">.) Item / Particulars : <b>{row.quotationPartName}</b><br /><br />Qty.: <b>{row.quotationQuantity}</b> | Value(Rupees): <b>{row.quotationfValue}</b><br /><br />Remark: <b>{row.quotationfRemark}</b></p>
+                                        <div className='buttonRemove'>
+                                            <Button onClick={(e) => {
+                                                e.stopPropagation();
+                                                console.log("set show clicked..");
+                                                setSelectedEntry(row.id);
+                                                setOpen((open) => !open);
+                                            }}
+                                            >
 
-                                            <img src={remove} alt="" width={20}></img>
-                                        </Button>
-
+                                                <img src={remove} alt="" width={20}></img>
+                                            </Button>
+                                        </div>
                                     </div>
                                     {row.id === selectedEntry && open ? (
                                         <div>

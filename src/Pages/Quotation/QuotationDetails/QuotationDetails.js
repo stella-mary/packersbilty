@@ -28,23 +28,6 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
 
     const [entries, setEntries] = useState([]);
 
-    // const initialValues = { phone: "", email: "", quotation: "", partyname: "", movingtype: "", companyparty: "", packingdate: "", deliverydate: "", date: "" };
-    // const [formValues, setFormValues] = useState(getDatafromValues());
-    // const [formErrors, setFormErrors] = useState({});
-    // const [isSubmit, setIsSubmit] = useState(false);
-
-    // const [email, setEmail] = useState("")
-    // const [quotation, setQuotation] = useState("")
-    // const [movingType, setMovingType] = useState("")
-    // const [companyParty, setCompanyParty] = useState("")
-    // const [partyName, setPartyName] = useState("")
-    // const [phone, setPhone] = useState("")
-    // const [date, setDate] = useState("")
-    // const [packingDate,  setPackingDate] = useState("")
-    // const [deliveryDate, setDeliveryDate] = useState("")
-
-    // const navigate = useNavigate();
-
     const [show, setShow] = useState(true);
 
     const Item = styled(Paper)(({ theme }) => ({
@@ -65,10 +48,6 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
     useEffect(() => {
         getAllQuotation();
     }, []);
-
-
-
-
 
     return (
 

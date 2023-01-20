@@ -20,8 +20,8 @@ import VehicleNewData from './NewData/VehicleNewData'
 import MoneyNewData from './NewData/BillNewData'
 import DownLoad from './Data/Other/DownLoad/DownLoad';
 
-
 import Home from './components/Home'
+import SaveQuotation from './Save/Quotation/SaveQuotation';
 
 function App() {
   return (
@@ -157,6 +157,14 @@ function App() {
                 element={<Home />}
               />
               <Route path="DownLoad" element={<DownLoad />} />
+            </Route>
+
+            <Route path="/">
+              <Route
+                index
+                element={<Home />}
+              />
+              <Route path="/SaveQuotation" element={<SaveQuotation />} />
             </Route>
 
           </Routes>

@@ -12,8 +12,13 @@ import QuotationOther from './Quotation/QuotationOther/QuotationOther';
 import QuotationItem from './Quotation/QuotationItem/QuotationItem';
 import axios from 'axios';
 
+import { useNavigate } from 'react-router-dom';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+
 
 const QuotationPages = () => {
+
+    const navigate = useNavigate();
 
     const [userInfo, setUserInfo] = useState({
         quotationNumber: '',
@@ -168,7 +173,7 @@ const QuotationPages = () => {
 
         }).then((response) => {
             console.log(response)
-            // navigate("/Attendence")
+            navigate("/SaveQuotation")
             console.log(response.data)
             alert("quotation form submitted")
         })
@@ -287,7 +292,7 @@ const QuotationPages = () => {
                 </div>
             </div>
             <QuotationItem userInfo={userInfo} handleOnChange={handleOnChange} />
-            <button type="submit" onClick={() => handleSubmit()}>Sign In</button>
+            <button className="quotationSubmit" type="submit" onClick={() => handleSubmit()}>SAVE QUOTATION <span className='arrow'><ArrowRightAltIcon /></span></button>
 
         </div >
     )

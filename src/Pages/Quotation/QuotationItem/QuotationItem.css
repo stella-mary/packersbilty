@@ -77,3 +77,38 @@ body
 .FinalMessage{
     display: none;
 }
+
+.addItems{
+        border-top: solid 1px gray;
+        border-bottom: solid 1px gray;
+        margin-top: 10px;
+}
+
+.addItemsTable{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.addItemsParaTable{
+    font-size: 12px;
+
+
+}
+
+.buttonRemove{
+    vertical-align: middle;
+    margin-top: 15px;
+}
+
+.removeItems{
+    background-color:#ff5b5c;
+    font-size: 10px;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    text-align: center;
+}

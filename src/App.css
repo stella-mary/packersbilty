@@ -63,3 +63,18 @@
 .containerSubSub2{
   width: 60%;
 }
+
+.quotationSubmit{
+  background-color: #3949ab;
+  font-size: 15px;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.arrow{
+  vertical-align: middle;
+}

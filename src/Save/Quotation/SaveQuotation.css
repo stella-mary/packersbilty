@@ -1,0 +1,88 @@
+.SaveQuotation{
+    /* width: 100%; */
+    margin: 10%;
+    /* width: 70%; */
+}
+
+.SaveQuotationMain{
+    /* width: 100%; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.SaveQuotationMain1{
+    background-color: white;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px; */
+    padding: 2px;
+    padding: 5px;
+    margin-top: 20px;
+    
+    /* width: 100%; */
+}
+
+.SaveQuotationMain2{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 2px;
+    padding: 5px;
+    margin-top: 20px;
+    
+    /* width: 100%; */
+}
+
+.SaveQuotationMain3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.SaveQuotationNew{
+    background-color: #00cf68;
+    text-align: center;
+    padding: 10px;
+    width: 30%;
+    cursor: pointer;
+    color: white;
+}
+
+
+.SaveQuotationList{
+    background-color: #eb8600;
+    padding: 10px;
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+
+
+.SaveQuotationDate{
+    background-color: #eb8600;
+    padding: 10px;
+    width: 15%;
+    border-radius: 5px;
+    color: white;
+}
+
+.SaveQuotationNumber{
+    background-color: #3949ab;
+    padding: 10px;
+    width: 15%;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+.boxSave{
+    /* border: solid 1px #3949ab;
+    border-radius: 8px;
+    width: 10%; */
+}
