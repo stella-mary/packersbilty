@@ -22,6 +22,7 @@ import DownLoad from './Data/Other/DownLoad/DownLoad';
 
 import Home from './components/Home'
 import SaveQuotation from './Save/Quotation/SaveQuotation';
+import QuotationViewPdf from './Save/QuotationViewPdf';
 
 function App() {
   return (
@@ -38,135 +39,38 @@ function App() {
                 element={<Home />}
               />
               <Route path="Quotation" element={<QuotationPage />} />
-            </Route>
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="Survey" element={<SurveyPage />} />
-            </Route>
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="Packing" element={<PackingPage />} />
-            </Route>
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="Lorry" element={<LorryPage />} />
-            </Route>
-
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="Vehicle" element={<VehiclePage />} />
-            </Route>
-
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="Bill" element={<BillPage />} />
-            </Route>
 
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="Money" element={<MoneyPage />} />
-            </Route>
-
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="Payment" element={<PaymentPage />} />
-            </Route>
 
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="NewQuotationList" element={<QuotationNewData />} />
-            </Route>
-
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="NewSurveyList" element={<SurveyNewData />} />
-            </Route>
 
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="NewPackingList" element={<PackingNewData />} />
-            </Route>
 
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
-              <Route path="NewLorryList" element={<LorryNewData />} />
-            </Route>
-
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="NewVehicleList" element={<VehicleNewData />} />
               <Route path="NewBillList" element={<BillNewData />} />
-            </Route>
-
-
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="NewMoneyList" element={<MoneyNewData />} />
-            </Route>
-
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="NewPaymentList" element={<PaymentNewData />} />
-            </Route>
-
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
               <Route path="DownLoad" element={<DownLoad />} />
-            </Route>
 
-            <Route path="/">
-              <Route
-                index
-                element={<Home />}
-              />
-              <Route path="/SaveQuotation" element={<SaveQuotation />} />
-            </Route>
+              <Route path="SaveQuotation" element={<SaveQuotation />} />
 
+              <Route path="LorryPage" element={<LorryPage />} />
+              <Route path="BillPage" element={<BillPage />} />
+              <Route path="MoneyPage" element={<MoneyPage />} />
+              <Route path="VehiclePage" element={<VehiclePage />} />
+              <Route path="PaymentPage" element={<PaymentPage />} />
+              <Route path="QuotationPage" element={<QuotationPage />} />
+              <Route path="QuotationNewData" element={<QuotationNewData />} />
+              <Route path="QuotationViewPdf" element={<QuotationViewPdf />} />
+
+            </Route>
           </Routes>
         </div>
         {/* </div> */}

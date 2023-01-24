@@ -75,11 +75,12 @@ export default function NewQuotationList() {
                     <Table sx={{ minWidth: 700 }} aria-label="customized table">
                         <TableHead>
                             <TableRow>
-                                <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-                                <StyledTableCell align="right">Calories</StyledTableCell>
-                                <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-                                <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-                                <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+                                <StyledTableCell align="left">#</StyledTableCell>
+                                <StyledTableCell align="left">Quotation Details</StyledTableCell>
+                                <StyledTableCell align="left">Customer Details</StyledTableCell>
+                                <StyledTableCell align="left">Location</StyledTableCell>
+                                <StyledTableCell align="left">Freight</StyledTableCell>
+                                <StyledTableCell align="left">&#160;</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -88,10 +89,11 @@ export default function NewQuotationList() {
                                     <StyledTableCell component="th" scope="row">
                                         {row.name}
                                     </StyledTableCell>
-                                    <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                                    <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                                    <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                                    <StyledTableCell align="right">{row.protein}</StyledTableCell>
+                                    <StyledTableCell align="left">{row.calories}</StyledTableCell>
+                                    <StyledTableCell align="left">{row.fat}</StyledTableCell>
+                                    <StyledTableCell align="left">{row.carbs}</StyledTableCell>
+                                    <StyledTableCell align="left">{row.protein}</StyledTableCell>
+                                    <StyledTableCell align="left">Save PDF</StyledTableCell>
                                 </StyledTableRow>
                             ))}
                         </TableBody>

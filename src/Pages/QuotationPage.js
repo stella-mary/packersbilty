@@ -270,6 +270,9 @@ const QuotationPages = () => {
     // );
 
 
+    function movetoSaveQuotation() {
+        navigate("/VehiclePage")
+    }
 
 
     return (
