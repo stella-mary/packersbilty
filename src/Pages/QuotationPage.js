@@ -20,7 +20,8 @@ const QuotationPages = () => {
 
     const navigate = useNavigate();
 
-    const [userInfo, setUserInfo] = useState({
+    const [quotationInfo, setQuotationInfo] = useState({
+        items: [],
         quotationNumber: '',
         quotationEmail: '',
         quotationQuotation: '',
@@ -84,9 +85,9 @@ const QuotationPages = () => {
 
     const handleOnChange = (e) => {
         const { name, value } = e.target
-        setUserInfo({ ...userInfo, [name]: value })
-        // setUserInfo({ value: e.target.value });
-        console.log(userInfo.quotationNumber)
+        setQuotationInfo({ ...quotationInfo, [name]: value })
+        // setQuotationInfo({ value: e.target.value });
+        console.log(quotationInfo.quotationNumber)
 
     }
 
@@ -107,69 +108,64 @@ const QuotationPages = () => {
         // e.preventDefault()
         axios.post('http://localhost:7005/quotation', {
 
-            quotationPartName: userInfo.quotationPartName,
-            quotationQuantity: userInfo.quotationQuantity,
-            quotationfValue: userInfo.quotationfValue,
-            quotationRemark: userInfo.quotationRemark,
-            quotationEmail: userInfo.quotationEmail,
-            quotationQuotation: userInfo.quotationQuotation,
-            quotationMovingType: userInfo.quotationMovingType,
-            quotationCompanyParty: userInfo.quotationCompanyParty,
-            quotationPartyName: userInfo.quotationPartyName,
-            quotationPhone: userInfo.quotationPhone,
-            quotationDate: userInfo.quotationDate,
-            quotationPackingDate: userInfo.quotationPackingDate,
-            quotationDeliveryDate: userInfo.quotationDeliveryDate,
-            quotationCountry: userInfo.quotationCountry,
-            quotationStates: userInfo.quotationStates,
-            quotationCity: userInfo.quotationCity,
-            quotationPincode: userInfo.quotationPincode,
-            quotationAddress: userInfo.quotationAddress,
-            quotationFloor: userInfo.quotationFloor,
-            quotationLift: userInfo.quotationLift,
-            quotationfCountry: userInfo.quotationfCountry,
-            quotationfStates: userInfo.quotationfStates,
-            quotationfCity: userInfo.quotationfCity,
-            quotationfPincode: userInfo.quotationfPincode,
-            quotationfAddress: userInfo.quotationfAddress,
-            quotationfFloor: userInfo.quotationfFloor,
-            quotationfLift: userInfo.quotationfLift,
-            quotationfreightCharge: userInfo.quotationfreightCharge,
-            quotationAdvancePaid: userInfo.quotationAdvancePaid,
-            quotationPackingCharge: userInfo.quotationPackingCharge,
-            quotationunPackingCharge: userInfo.quotationunPackingCharge,
-            quotationLoadingCharge: userInfo.quotationLoadingCharge,
-            quotationunLoadingCharge: userInfo.quotationunLoadingCharge,
-            quotationPackingMaterialCharge: userInfo.quotationPackingMaterialCharge,
-            quotationStorageCharge: userInfo.quotationStorageCharge,
-            quotationCarTPT: userInfo.quotationCarTPT,
-            quotationMiscellCharge: userInfo.quotationMiscellCharge,
-            quotationOtherCharge: userInfo.quotationOtherCharge,
-            quotationstCharge: userInfo.quotationstCharge,
-            quotationGreenTax: userInfo.quotationGreenTax,
-            quotationSurCharge: userInfo.quotationSurCharge,
-            quotationGSTQuote: userInfo.quotationGSTQuote,
-            quotationGST: userInfo.quotationGST,
-            quotationGSTType: userInfo.quotationGSTType,
-            quotationRemark: userInfo.quotationRemark,
-            quotationDiscount: userInfo.quotationDiscount,
-            quotationInsuranceType: userInfo.quotationInsuranceType,
-            quotationInsuranceCharge: userInfo.quotationInsuranceCharge,
-            quotationfGST: userInfo.quotationfGST,
-            quotationDeclaration: userInfo.quotationDeclaration,
-            quotationfInsuranceType: userInfo.quotationfInsuranceType,
-            quotationfInsuranceCharge: userInfo.quotationfInsuranceCharge,
-            quotationffGst: userInfo.quotationffGst,
-            quotationfDeclaration: userInfo.quotationfDeclaration,
-            quotationLoad: userInfo.quotationLoad,
-            quotationDown: userInfo.quotationDown,
-            quotationfLoad: userInfo.quotationfLoad,
-            quotationNeed: userInfo.quotationNeed,
-            // quotationPartName: userInfo.quotationPartName,
-            // quotationQuantity: userInfo.quotationQuantity,
-            // quotationfValue: userInfo.quotationfValue,
-            // quotationfRemark: userInfo.quotationfRemark,
-
+            quotationPartName: quotationInfo.quotationPartName,
+            quotationQuantity: quotationInfo.quotationQuantity,
+            quotationfValue: quotationInfo.quotationfValue,
+            quotationRemark: quotationInfo.quotationRemark,
+            quotationEmail: quotationInfo.quotationEmail,
+            quotationQuotation: quotationInfo.quotationQuotation,
+            quotationMovingType: quotationInfo.quotationMovingType,
+            quotationCompanyParty: quotationInfo.quotationCompanyParty,
+            quotationPartyName: quotationInfo.quotationPartyName,
+            quotationPhone: quotationInfo.quotationPhone,
+            quotationDate: quotationInfo.quotationDate,
+            quotationPackingDate: quotationInfo.quotationPackingDate,
+            quotationDeliveryDate: quotationInfo.quotationDeliveryDate,
+            quotationCountry: quotationInfo.quotationCountry,
+            quotationStates: quotationInfo.quotationStates,
+            quotationCity: quotationInfo.quotationCity,
+            quotationPincode: quotationInfo.quotationPincode,
+            quotationAddress: quotationInfo.quotationAddress,
+            quotationFloor: quotationInfo.quotationFloor,
+            quotationLift: quotationInfo.quotationLift,
+            quotationfCountry: quotationInfo.quotationfCountry,
+            quotationfStates: quotationInfo.quotationfStates,
+            quotationfCity: quotationInfo.quotationfCity,
+            quotationfPincode: quotationInfo.quotationfPincode,
+            quotationfAddress: quotationInfo.quotationfAddress,
+            quotationfFloor: quotationInfo.quotationfFloor,
+            quotationfLift: quotationInfo.quotationfLift,
+            quotationfreightCharge: quotationInfo.quotationfreightCharge,
+            quotationAdvancePaid: quotationInfo.quotationAdvancePaid,
+            quotationPackingCharge: quotationInfo.quotationPackingCharge,
+            quotationunPackingCharge: quotationInfo.quotationunPackingCharge,
+            quotationLoadingCharge: quotationInfo.quotationLoadingCharge,
+            quotationunLoadingCharge: quotationInfo.quotationunLoadingCharge,
+            quotationPackingMaterialCharge: quotationInfo.quotationPackingMaterialCharge,
+            quotationStorageCharge: quotationInfo.quotationStorageCharge,
+            quotationCarTPT: quotationInfo.quotationCarTPT,
+            quotationMiscellCharge: quotationInfo.quotationMiscellCharge,
+            quotationOtherCharge: quotationInfo.quotationOtherCharge,
+            quotationstCharge: quotationInfo.quotationstCharge,
+            quotationGreenTax: quotationInfo.quotationGreenTax,
+            quotationSurCharge: quotationInfo.quotationSurCharge,
+            quotationGSTQuote: quotationInfo.quotationGSTQuote,
+            quotationGST: quotationInfo.quotationGST,
+            quotationGSTType: quotationInfo.quotationGSTType,
+            quotationRemark: quotationInfo.quotationRemark,
+            quotationDiscount: quotationInfo.quotationDiscount,
+            quotationInsuranceType: quotationInfo.quotationInsuranceType,
+            quotationInsuranceCharge: quotationInfo.quotationInsuranceCharge,
+            quotationfGST: quotationInfo.quotationfGST,
+            quotationDeclaration: quotationInfo.quotationDeclaration,
+            quotationfInsuranceType: quotationInfo.quotationfInsuranceType,
+            quotationfInsuranceCharge: quotationInfo.quotationfInsuranceCharge,
+            quotationffGst: quotationInfo.quotationffGst,
+            quotationfDeclaration: quotationInfo.quotationfDeclaration,
+            quotationLoad: quotationInfo.quotationLoad,
+            quotationDown: quotationInfo.quotationDown,
+            quotationfLoad: quotationInfo.quotationfLoad,
+            quotationNeed: quotationInfo.quotationNeed,
 
         }).then((response) => {
             console.log(response)
@@ -178,29 +174,28 @@ const QuotationPages = () => {
             alert("quotation form submitted")
         })
 
-
-        setUserInfo("")
+        setQuotationInfo("")
     }
 
-    const getAllQuotation = () => {
-        axios.get('http://localhost:7005/quotation').then((response) => {
-            console.log(response.data);
-        });
-    };
+    // const getAllQuotation = () => {
+    //     axios.get('http://localhost:7005/quotation').then((response) => {
+    //         console.log(response.data);
+    //     });
+    // };
 
-    useEffect(() => {
-        getAllQuotation();
-    }, []);
+    // useEffect(() => {
+    //     getAllQuotation();
+    // }, []);
 
-    // console.log(userInfo)
+    // console.log(quotationInfo)
     // // setSteps(steps + 1)
-    // setUserInfo(userInfo)
+    // setQuotationInfo(quotationInfo)
     // alert("quotationformsubmitted")
 
-    // setUserInfo("")
+    // setQuotationInfo("")
 
     // let newUserInfo = {
-    //     id: userInfo.length + 1,
+    //     id: quotationInfo.length + 1,
     //     quotionNumber: '',
     //     email: '',
     //     quotation: '',
@@ -262,11 +257,11 @@ const QuotationPages = () => {
     //     fremark: '',
     // };
 
-    // setUserInfo(getEmptyEntry());
+    // setQuotationInfo(getEmptyEntry());
 
     // localStorage.setItem(
-    //     "userInfo",
-    //     JSON.stringify([...userInfo, newUserInfo])
+    //     "quotationInfo",
+    //     JSON.stringify([...quotationInfo, newUserInfo])
     // );
 
 
@@ -279,22 +274,22 @@ const QuotationPages = () => {
 
         <div>
             <Quotation />
-            <QuotationDetails userInfo={userInfo} handleOnChange={handleOnChange} />
+            <QuotationDetails quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
             <div className="containerSub">
-                <QuotationMoveFrom userInfo={userInfo} handleOnChange={handleOnChange} />
-                <QuotationMoveTo userInfo={userInfo} handleOnChange={handleOnChange} />
+                <QuotationMoveFrom quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
+                <QuotationMoveTo quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
             </div>
             <div className='containerSubSub1'>
                 <div className='containerSubSub2'>
-                    <QuotationPayment userInfo={userInfo} handleOnChange={handleOnChange} />
+                    <QuotationPayment quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
                 </div>
                 <div className='containerSubSub3'>
-                    <QuotationInsurance userInfo={userInfo} handleOnChange={handleOnChange} />
-                    <QuotationVehicle userInfo={userInfo} handleOnChange={handleOnChange} />
-                    <QuotationOther userInfo={userInfo} handleOnChange={handleOnChange} />
+                    <QuotationInsurance quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
+                    <QuotationVehicle quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
+                    <QuotationOther quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
                 </div>
             </div>
-            <QuotationItem userInfo={userInfo} handleOnChange={handleOnChange} />
+            <QuotationItem quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
             <button className="quotationSubmit" type="submit" onClick={() => handleSubmit()}>SAVE QUOTATION <span className='arrow'><ArrowRightAltIcon /></span></button>
 
         </div >

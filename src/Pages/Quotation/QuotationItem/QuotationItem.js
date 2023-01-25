@@ -35,7 +35,7 @@ function PaperComponent(props) {
 }
 
 
-const QuotationItem = ({ userInfo, handleOnChange }) => {
+const QuotationItem = () => {
 
     const navigate = useNavigate();
     const [show, setShow] = useState(true);
@@ -55,16 +55,23 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
 
     };
 
+    const handleOnChange = (e) => {
+        const { name, value } = e.target
+        setItems({ ...items, [name]: value })
+        // setQuotationInfo({ value: e.target.value });
+        console.log(items)
+    }
+
 
     const handleRemove = (itemId) => {
 
-        console.log(itemId);
-        axios.delete(`http://localhost:7005/items/${itemId}`).then((response) => {
-            console.log(response);
-            getAllQuotation()
-            //   fetchAllEvents();
-            // navigate("/QuotationItem");
-        });
+        // console.log(itemId);
+        // axios.delete(`http://localhost:7005/items/${itemId}`).then((response) => {
+        //     console.log(response);
+        //     getAllQuotation()
+        //     //   fetchAllEvents();
+        //     // navigate("/QuotationItem");
+        // });
         setOpen(false);
         setDisplay(<div className='removeItems'>"Removed This Item / Particular"</div>);
         // document.write("Removed This Item / Particular");
@@ -75,44 +82,54 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
         setOpen(false)
     }
 
-    const [details, setDetails] = useState({
-        name: userInfo.quotationPartName,
-        quantity: userInfo.quotationQuantity,
-        value: userInfo.quotationfValue,
-        remark: userInfo.quotationfRemark,
-        itemId: userInfo.itemId
+    const [items, setItems] = useState({
+        quotationPartName: "",
+        quotationQuantity: "",
+        quotationfValue: "",
+        quotationfRemark: "",
     });
 
 
     const handleSubmit = (e) => {
-        // e.preventDefault()
-        axios.post('http://localhost:7005/items', {
-
-            quotationPartName: userInfo.quotationPartName,
-            quotationQuantity: userInfo.quotationQuantity,
-            quotationfValue: userInfo.quotationfValue,
-            quotationfRemark: userInfo.quotationfRemark,
-            itemId: userInfo.itemId
-
-        }).then((response) => {
-            console.log(response)
-
-        })
-
-        setDetails("")
-    }
-
-    const getAllQuotation = () => {
-        axios.get('http://localhost:7005/items').then((response) => {
-            console.log(response.data);
-            setData(response.data);
-        });
+        e.preventDefault()
+        setItems([...items, {
+            quotationPartName: items.quotationPartName,
+            quotationQuantity: items.quotationQuantity,
+            quotationfRemark: items.quotationfRemark,
+            quotationfValue: items.quotationfValue,
+        }])
+        console.log(items.quotationPartName)
     };
 
 
-    useEffect(() => {
-        getAllQuotation();
-    }, []);
+
+    // axios.post('http://localhost:7005/items', {
+
+    //     quotationPartName: details.quotationPartName,
+    //     quotationQuantity: details.quotationQuantity,
+    //     quotationfValue: details.quotationfValue,
+    //     quotationfRemark: details.quotationfRemark,
+    //     itemId: details.itemId
+
+    // }).then((response) => {
+    //     console.log(response)
+
+    // })
+
+    // setItems("")
+
+
+    // const getAllQuotation = () => {
+    //     axios.get('http://localhost:7005/items').then((response) => {
+    //         console.log(response.data);
+    //         setData(response.data);
+    //     });
+    // };
+
+
+    // useEffect(() => {
+    //     getAllQuotation();
+    // }, []);
 
 
     const Item = styled(Paper)(({ theme }) => ({
@@ -138,7 +155,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                     type="text"
                                     name="quotationPartName" required
                                     id="partName"
-                                    value={userInfo.quotationPartName}
+                                    value={items.quotationPartName}
                                     // value={name}
                                     onChange={handleOnChange}
                                 />
@@ -149,7 +166,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                 <input
                                     type="text"
                                     name="quotationQuantity" id="quantity"
-                                    value={userInfo.quotationQuantity}
+                                    value={items.quotationQuantity}
                                     // value={quantity}
                                     onChange={handleOnChange}
                                 />
@@ -161,7 +178,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                     type="text"
                                     name="quotationfValue"
                                     id="fvalue"
-                                    value={userInfo.quotationfValue}
+                                    value={items.quotationfValue}
 
                                     onChange={handleOnChange}
                                 />
@@ -173,7 +190,7 @@ const QuotationItem = ({ userInfo, handleOnChange }) => {
                                     type="text"
                                     name="quotationfRemark"
                                     id="fRemark"
-                                    value={userInfo.quotationfRemark}
+                                    value={items.quotationfRemark}
                                     onChange={handleOnChange}
                                 />
 

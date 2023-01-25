@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-const QuotationVehicle = ({ userInfo, handleOnChange, }) => {
+const QuotationVehicle = ({ quotationInfo, handleOnChange, }) => {
 
     const [show, setShow] = useState(true);
 
@@ -34,7 +34,7 @@ const QuotationVehicle = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfInsuranceType" required
                                         id="insuranceType"
-                                        value={userInfo.quotationfInsuranceType}
+                                        value={quotationInfo.quotationfInsuranceType}
                                         onChange={handleOnChange}
                                     >
                                         <option value='1'>Optional</option>
@@ -48,7 +48,7 @@ const QuotationVehicle = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfInsuranceCharge" required
                                         id="insuranceCharge"
-                                        value={userInfo.quotationfInsuranceCharge}
+                                        value={quotationInfo.quotationfInsuranceCharge}
                                         onChange={handleOnChange}
                                     >
                                         <option value='4'>0.5%</option>
@@ -78,7 +78,7 @@ const QuotationVehicle = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationffGST"
                                         id="fGST"
-                                        value={userInfo.quotationffGST}
+                                        value={quotationInfo.quotationffGST}
                                         onChange={handleOnChange}
                                     >
                                         <option value='23'>0</option>
@@ -94,7 +94,7 @@ const QuotationVehicle = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfDeclaration"
                                         id="declaration"
-                                        value={userInfo.quotationfDeclaration}
+                                        value={quotationInfo.quotationfDeclaration}
                                         onChange={handleOnChange}
                                     />
                                     {/* <button type="submit" onClick={() => nextStep()}>Sign In</button> */}

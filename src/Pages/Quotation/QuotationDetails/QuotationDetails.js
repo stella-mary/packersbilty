@@ -24,7 +24,7 @@ import Grid from '@mui/material/Grid';
 //     }
 // };
 
-const QuotationDetails = ({ userInfo, handleOnChange, }) => {
+const QuotationDetails = ({ quotationInfo, handleOnChange, }) => {
 
     const [entries, setEntries] = useState([]);
 
@@ -63,7 +63,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="text"
                                 name="quotationNumber"
                                 id="quotation"
-                                value={userInfo.quotationNumber}
+                                value={quotationInfo.quotationNumber}
                                 onChange={handleOnChange}
                             />
                         </Grid>
@@ -78,7 +78,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="text"
                                 name="quotationMovingType" required
                                 id="movingType"
-                                value={userInfo.quotationMovingType}
+                                value={quotationInfo.quotationMovingType}
                                 onChange={handleOnChange}
                             >
 
@@ -99,7 +99,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="text"
                                 name="quotationCompanyParty" required
                                 id="companyParty"
-                                value={userInfo.quotationCompanyParty}
+                                value={quotationInfo.quotationCompanyParty}
                                 onChange={handleOnChange}
                             />
                         </Grid>
@@ -110,7 +110,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="text"
                                 name="quotationPartyName" required
                                 id="partyName"
-                                value={userInfo.quotationPartyName}
+                                value={quotationInfo.quotationPartyName}
                                 onChange={handleOnChange}
                             />
                         </Grid>
@@ -121,7 +121,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="text"
                                 name="quotationPartyPhone"
                                 id="partyPhone"
-                                value={userInfo.quotationPartyPhone}
+                                value={quotationInfo.quotationPartyPhone}
                                 onChange={handleOnChange}
                             />
                         </Grid>
@@ -132,7 +132,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="text"
                                 name="quotationEmail"
                                 id="email"
-                                value={userInfo.quotationEmail}
+                                value={quotationInfo.quotationEmail}
                                 onChange={handleOnChange}
                             />
                         </Grid>
@@ -143,7 +143,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="date"
                                 name="quotationDate"
                                 id="date"
-                                value={userInfo.quotationDate}
+                                value={quotationInfo.quotationDate}
                                 onChange={handleOnChange}
                             />
                         </Grid>
@@ -154,7 +154,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="date"
                                 name="quotationPackingDate"
                                 id="packingDate"
-                                value={userInfo.quotationPackingDate}
+                                value={quotationInfo.quotationPackingDate}
                                 onChange={handleOnChange}
                             />
                         </Grid>
@@ -165,7 +165,7 @@ const QuotationDetails = ({ userInfo, handleOnChange, }) => {
                                 type="date"
                                 name="quotationDeliveryDate"
                                 id="deliveryDate"
-                                value={userInfo.quotationDeliveryDate}
+                                value={quotationInfo.quotationDeliveryDate}
                                 onChange={handleOnChange}
                             />
                         </Grid>

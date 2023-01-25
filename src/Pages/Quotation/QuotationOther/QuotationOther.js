@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
 
-const QuotationOther = ({ userInfo, handleOnChange, }) => {
+const QuotationOther = ({ quotationInfo, handleOnChange, }) => {
 
     const [show, setShow] = useState(true);
 
@@ -36,7 +36,7 @@ const QuotationOther = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationLoad"
                                         id="load"
-                                        value={userInfo.quotationLoad}
+                                        value={quotationInfo.quotationLoad}
                                         onChange={handleOnChange}
                                     >
                                         <option value='1'>Yes</option>
@@ -50,7 +50,7 @@ const QuotationOther = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationDown"
                                         id="down"
-                                        value={userInfo.quotationDown}
+                                        value={quotationInfo.quotationDown}
                                         onChange={handleOnChange}
                                     >
                                     </textarea>
@@ -61,7 +61,7 @@ const QuotationOther = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfLoad" required
                                         id="fload"
-                                        value={userInfo.quotationfLoad}
+                                        value={quotationInfo.quotationfLoad}
                                         onChange={handleOnChange}
                                     >
                                         <option value='4'>Yes</option>
@@ -75,7 +75,7 @@ const QuotationOther = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationNeed" required
                                         id="need"
-                                        value={userInfo.quotationNeed}
+                                        value={quotationInfo.quotationNeed}
                                         onChange={handleOnChange}
                                     >
                                     </textarea>

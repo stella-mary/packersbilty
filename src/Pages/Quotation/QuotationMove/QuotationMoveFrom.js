@@ -18,7 +18,7 @@ import Grid from '@mui/material/Grid';
 //     }
 // };
 
-const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
+const QuotationMoveFrom = ({ quotationInfo, handleOnChange }) => {
 
 
 
@@ -139,7 +139,7 @@ const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
                                         type="text"
                                         name="quotationCountry"
                                         id="country"
-                                        value={userInfo.quotationCountry}
+                                        value={quotationInfo.quotationCountry}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -149,7 +149,7 @@ const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
                                         type="text"
                                         name="quotationStates"
                                         id="states"
-                                        value={userInfo.quotationStates}
+                                        value={quotationInfo.quotationStates}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -160,7 +160,7 @@ const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
                                         type="text"
                                         name="quotationCity"
                                         id="city"
-                                        value={userInfo.quotationCity}
+                                        value={quotationInfo.quotationCity}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -170,7 +170,7 @@ const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
                                         type="text"
                                         name="quotationPincode"
                                         id="pincode"
-                                        value={userInfo.quotationPincode}
+                                        value={quotationInfo.quotationPincode}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -180,7 +180,7 @@ const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
                                         type="text"
                                         name="quotationAddress"
                                         id="address"
-                                        value={userInfo.quotationAddress}
+                                        value={quotationInfo.quotationAddress}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -190,7 +190,7 @@ const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
                             type="text"
                             name="quotationFloor" required
                             id="movingType"
-                            value={userInfo.quotationFloor}
+                            value={quotationInfo.quotationFloor}
                             onChange={handleOnChange}
                         >
 
@@ -206,7 +206,7 @@ const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
                                         type="text"
                                         name="quotationFloor"
                                         id="floor"
-                                        value={userInfo.quotationFloor}
+                                        value={quotationInfo.quotationFloor}
                                         onChange={handleOnChange}
                                     >
                                         <option value="1">Ground Floor</option>
@@ -226,7 +226,7 @@ const QuotationMoveFrom = ({ userInfo, handleOnChange }) => {
                                         type="text"
                                         name="quotationLift"
                                         id="lift"
-                                        value={userInfo.quotationLift}
+                                        value={quotationInfo.quotationLift}
                                         onChange={handleOnChange}
 
                                     >

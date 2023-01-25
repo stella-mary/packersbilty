@@ -19,7 +19,7 @@ import Grid from '@mui/material/Grid';
 //     }
 // };
 
-const QuotationMoveTo = ({ userInfo, handleOnChange, }) => {
+const QuotationMoveTo = ({ quotationInfo, handleOnChange, }) => {
 
 
 
@@ -140,7 +140,7 @@ const QuotationMoveTo = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfCountry" required
                                         id="fcountry"
-                                        value={userInfo.quotationfCountry}
+                                        value={quotationInfo.quotationfCountry}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -150,7 +150,7 @@ const QuotationMoveTo = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfStates"
                                         id="fstates"
-                                        value={userInfo.quotationfStates}
+                                        value={quotationInfo.quotationfStates}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -161,7 +161,7 @@ const QuotationMoveTo = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfCity" required
                                         id="fcity"
-                                        value={userInfo.quotationfCity}
+                                        value={quotationInfo.quotationfCity}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -171,7 +171,7 @@ const QuotationMoveTo = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfPincode"
                                         id="fpincode"
-                                        value={userInfo.quotationfPincode}
+                                        value={quotationInfo.quotationfPincode}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -181,7 +181,7 @@ const QuotationMoveTo = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfAddress"
                                         id="faddress"
-                                        value={userInfo.quotationfAddress}
+                                        value={quotationInfo.quotationfAddress}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>
@@ -191,7 +191,7 @@ const QuotationMoveTo = ({ userInfo, handleOnChange, }) => {
 
                                         name="quotationfFloor"
                                         id="ffloor"
-                                        value={userInfo.quotationfFloor}
+                                        value={quotationInfo.quotationfFloor}
                                         onChange={handleOnChange}
                                     >
                                         <option value='1'>Ground Floor</option>
@@ -211,7 +211,7 @@ const QuotationMoveTo = ({ userInfo, handleOnChange, }) => {
 
                                         name="quotationfLift"
                                         id="flift"
-                                        value={userInfo.quotationfLift}
+                                        value={quotationInfo.quotationfLift}
                                         onChange={handleOnChange}
 
                                     >

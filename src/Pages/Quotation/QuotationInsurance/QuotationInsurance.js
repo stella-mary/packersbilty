@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-const QuotationInsurance = ({ userInfo, handleOnChange, }) => {
+const QuotationInsurance = ({ quotationInfo, handleOnChange, }) => {
 
     const [show, setShow] = useState(true);
 
@@ -34,7 +34,7 @@ const QuotationInsurance = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationInsuranceType" required
                                         id="insuranceType"
-                                        value={userInfo.quotationInsuranceType}
+                                        value={quotationInfo.quotationInsuranceType}
                                         onChange={handleOnChange}
                                     >
                                         <option value='1'>Optional</option>
@@ -54,7 +54,7 @@ const QuotationInsurance = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationInsuranceCharge" required
                                         id="insuranceCharge"
-                                        value={userInfo.quotationInsuranceCharge}
+                                        value={quotationInfo.quotationInsuranceCharge}
                                         onChange={handleOnChange}
                                     >
                                         <option value='4'>0.5%</option>
@@ -84,7 +84,7 @@ const QuotationInsurance = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationfGST"
                                         id="fGST"
-                                        value={userInfo.quotationfGST}
+                                        value={quotationInfo.quotationfGST}
                                         onChange={handleOnChange}
                                     >
                                         <option value='23'>0</option>
@@ -100,7 +100,7 @@ const QuotationInsurance = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationDeclaration"
                                         id="declaration"
-                                        value={userInfo.quotationDeclaration}
+                                        value={quotationInfo.quotationDeclaration}
                                         onChange={handleOnChange}
                                     />
                                 </Grid>

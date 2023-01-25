@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-const QuotationPayment = ({ userInfo, handleOnChange, }) => {
+const QuotationPayment = ({ quotationInfo, handleOnChange, }) => {
 
     const [show, setShow] = useState(true);
 
@@ -34,7 +34,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationfreightCharge"
                                     id="freightCharge"
-                                    value={userInfo.quotationfreightCharge}
+                                    value={quotationInfo.quotationfreightCharge}
                                     onChange={handleOnChange}
                                     placeholder={0}
                                 />
@@ -45,7 +45,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationAdvancePaid"
                                     id="AdvancePaid"
-                                    value={userInfo.quotationAdvancePaid}
+                                    value={quotationInfo.quotationAdvancePaid}
                                     onChange={handleOnChange}
                                     placeholder={0}
                                 />
@@ -62,7 +62,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationPackingCharge"
                                         id="fpackingCharge"
-                                        value={userInfo.quotationPackingCharge}
+                                        value={quotationInfo.quotationPackingCharge}
                                         onChange={handleOnChange}
                                         placeholder="Included in Freight"
                                     >
@@ -73,7 +73,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationPackingCharge"
                                         id="fpackingCharge"
-                                        value={userInfo.quotationPackingCharge}
+                                        value={quotationInfo.quotationPackingCharge}
                                         onChange={handleOnChange}
                                         placeholder="0"
                                     />
@@ -87,7 +87,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationunPackingCharge"
                                         id="unPackingCharge"
-                                        value={userInfo.quotationunPackingCharge}
+                                        value={quotationInfo.quotationunPackingCharge}
                                         onChange={handleOnChange}
                                     >
                                         <option value='3'>Included in Freight</option>
@@ -97,7 +97,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationPackingCharge"
                                         id="fpackingCharge"
-                                        value={userInfo.quotationPackingCharge}
+                                        value={quotationInfo.quotationPackingCharge}
                                         onChange={handleOnChange}
                                         placeholder="0"
                                     />
@@ -110,7 +110,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationLoadingCharge"
                                         id="loadingCharge"
-                                        value={userInfo.quotationLoadingCharge}
+                                        value={quotationInfo.quotationLoadingCharge}
                                         onChange={handleOnChange}
                                     >
                                         <option value='5'>Included in Freight</option>
@@ -120,7 +120,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationPackingCharge"
                                         id="fpackingCharge"
-                                        value={userInfo.quotationPackingCharge}
+                                        value={quotationInfo.quotationPackingCharge}
                                         onChange={handleOnChange}
                                         placeholder="0"
                                     />
@@ -133,7 +133,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationunLoadingCharge"
                                         id="unLoadingCharge"
-                                        value={userInfo.quotationunLoadingCharge}
+                                        value={quotationInfo.quotationunLoadingCharge}
                                         onChange={handleOnChange}
                                     >
                                         <option value='7'>Included in Freight</option>
@@ -143,7 +143,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationPackingCharge"
                                         id="fpackingCharge"
-                                        value={userInfo.quotationPackingCharge}
+                                        value={quotationInfo.quotationPackingCharge}
                                         onChange={handleOnChange}
                                         placeholder="0"
                                     />
@@ -156,7 +156,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationPackingMaterialCharge"
                                         id="packingMaterialCharge"
-                                        value={userInfo.quotationPackingMaterialCharge}
+                                        value={quotationInfo.quotationPackingMaterialCharge}
                                         onChange={handleOnChange}
                                     >
                                         <option value='9'>Included in Freight</option>
@@ -166,7 +166,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationPackingCharge"
                                         id="fpackingCharge"
-                                        value={userInfo.quotationPackingCharge}
+                                        value={quotationInfo.quotationPackingCharge}
                                         onChange={handleOnChange}
                                         placeholder="0"
                                     />
@@ -181,7 +181,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationStorageCharge"
                                     id="storageCharge"
-                                    value={userInfo.quotationStorageCharge}
+                                    value={quotationInfo.quotationStorageCharge}
                                     onChange={handleOnChange}
                                     placeholder="0"
                                 />
@@ -192,7 +192,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationcarTPT"
                                     id="carTPT"
-                                    value={userInfo.quotationcarTPI}
+                                    value={quotationInfo.quotationcarTPI}
                                     onChange={handleOnChange}
                                     placeholder="0"
                                 />
@@ -203,7 +203,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationMiscellCharge"
                                     id="MiscellCharge"
-                                    value={userInfo.quotationMiscellCharge}
+                                    value={quotationInfo.quotationMiscellCharge}
                                     onChange={handleOnChange}
                                     placeholder="0"
                                 />
@@ -214,7 +214,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationOtherCharge"
                                     id="otherCharge"
-                                    value={userInfo.quotationOtherCharge}
+                                    value={quotationInfo.quotationOtherCharge}
                                     onChange={handleOnChange}
                                     placeholder="0"
                                 />
@@ -225,7 +225,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationstCharge"
                                     id="stCharge"
-                                    value={userInfo.quotationstCharge}
+                                    value={quotationInfo.quotationstCharge}
                                     onChange={handleOnChange}
                                     placeholder="0"
                                 />
@@ -236,7 +236,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationGreenTax"
                                     id="greenTax"
-                                    value={userInfo.quotationGreenTax}
+                                    value={quotationInfo.quotationGreenTax}
                                     onChange={handleOnChange}
                                     placeholder="0"
                                 />
@@ -248,7 +248,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationsurCharge"
                                         id="surCharge"
-                                        value={userInfo.quotationsurCharge}
+                                        value={quotationInfo.quotationsurCharge}
                                         onChange={handleOnChange}
                                         placeholder="Not Applicable"
                                     >
@@ -260,7 +260,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationPackingCharge"
                                         id="fpackingCharge"
-                                        value={userInfo.quotationPackingCharge}
+                                        value={quotationInfo.quotationPackingCharge}
                                         onChange={handleOnChange}
                                         placeholder="0"
                                     >
@@ -293,7 +293,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationGSTQuote"
                                     id="GSTQuote"
-                                    value={userInfo.quotationGSTQuote}
+                                    value={quotationInfo.quotationGSTQuote}
                                     onChange={handleOnChange}
                                     placeholder="Not Applicable"
                                 >
@@ -309,7 +309,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationGST"
                                     id="GST"
-                                    value={userInfo.quotationGST}
+                                    value={quotationInfo.quotationGST}
                                     onChange={handleOnChange}
                                 >
                                     <option value='38'>0</option>
@@ -325,7 +325,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                     type="text"
                                     name="quotationGSTType"
                                     id="GSTType"
-                                    value={userInfo.quotationGSTType}
+                                    value={quotationInfo.quotationGSTType}
                                     onChange={handleOnChange}
                                 >
                                     <option value='42'>CGST/SGST</option>
@@ -338,7 +338,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                 <textarea
                                     name="quotationRemark" required
                                     id="fRemark"
-                                    value={userInfo.quotationfRemark}
+                                    value={quotationInfo.quotationfRemark}
                                     onChange={handleOnChange}
                                 >
                                 </textarea>
@@ -350,7 +350,7 @@ const QuotationPayment = ({ userInfo, handleOnChange, }) => {
                                         type="text"
                                         name="quotationDiscount" required
                                         id="discount"
-                                        value={userInfo.quotationDiscount}
+                                        value={quotationInfo.quotationDiscount}
                                         onChange={handleOnChange}
                                     />
                                     <p className='QuotationPaymentFormDiscount'>Applicable on Sub-Total Amount</p>
