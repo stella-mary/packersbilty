@@ -19,6 +19,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 const QuotationPages = () => {
 
     const navigate = useNavigate();
+    const [items, setItems] = useState([]);
 
     const [quotationInfo, setQuotationInfo] = useState({
         items: [],
@@ -77,10 +78,6 @@ const QuotationPages = () => {
         quotationDown: '',
         quotationfLoad: '',
         quotationNeed: '',
-        quotationPartName: '',
-        quotationQuantity: '',
-        quotationfValue: '',
-        quotationfRemark: '',
     })
 
     const handleOnChange = (e) => {
@@ -91,18 +88,13 @@ const QuotationPages = () => {
 
     }
 
+    const getItemDetails = (e) => {
+        // e.preventDefault()
+        console.log("add items button clicked")
+        setItems([...items, items])
+        console.log(items)
+    }
 
-
-    // const getEmptyEntry = () => {
-    //     return {
-    //         personName: "",
-    //         city: "",
-    //         amount: "",
-    //         gift: "",
-    //         eventId: "",
-    //     };
-    // };
-    // const [entries, setEntries] = useState(getEmptyEntry());
 
     const handleSubmit = (e) => {
         // e.preventDefault()
@@ -289,9 +281,8 @@ const QuotationPages = () => {
                     <QuotationOther quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
                 </div>
             </div>
-            <QuotationItem quotationInfo={quotationInfo} handleOnChange={handleOnChange} />
+            <QuotationItem getItemDetails={getItemDetails} />
             <button className="quotationSubmit" type="submit" onClick={() => handleSubmit()}>SAVE QUOTATION <span className='arrow'><ArrowRightAltIcon /></span></button>
-
         </div >
     )
 }
